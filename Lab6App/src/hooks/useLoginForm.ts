@@ -62,18 +62,21 @@ export const useLoginForm = () => {
         msg: 'Password must contain at least one uppercase',
       });
     }
+
     if (!minusRgx.test(formValues.password)) {
       _passWordErrors.push({
         type: 'lowercase',
         msg: 'Password must contain at least one lowercase',
       });
     }
+
     if (!numberRgx.test(formValues.password)) {
       _passWordErrors.push({
         type: 'number',
         msg: 'Password must contain at least one number',
       });
     }
+
     if (!specialCharRgx.test(formValues.password)) {
       _passWordErrors.push({
         type: 'specialChar',
@@ -83,6 +86,7 @@ export const useLoginForm = () => {
 
     if (_passWordErrors.length > 0) {
       setFormErrors(prevValues => [...prevValues, ..._passWordErrors]);
+
       return false;
     }
 
